@@ -1,0 +1,68 @@
+﻿@model 前端特效和UI.Models.DatepickerClass
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section link{
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">*@
+    <link href="~/css/jqui/jquery-ui.theme.css" rel="stylesheet" />
+    <link href="~/css/jqui/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/css/jqui/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/jqui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/css/jqui/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="~/css/jqui/jquery-ui.structure.min.css" rel="stylesheet" />
+}
+<h1>Index</h1>
+
+<h4>DatepickerClass</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MyID" class="control-label"></label>
+                <input asp-for="MyID" class="form-control" />
+                <span asp-validation-for="MyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MyName" class="control-label"></label>
+                <input asp-for="MyName" class="form-control" />
+                <span asp-validation-for="MyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MyBirthDay" class="control-label"></label>
+                <input asp-for="MyBirthDay" class="form-control" />
+                <span asp-validation-for="MyBirthDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MyDropList" class="control-label"></label>
+                <input asp-for="MyDropList" class="form-control" />
+                <span asp-validation-for="MyDropList" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MyApprove" /> @Html.DisplayNameFor(model => model.MyApprove)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#MyBirthDay").datepicker();
+        });
+    </script>
+}
